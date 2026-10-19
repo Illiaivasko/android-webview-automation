@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+reports/*.png
+reports/*.mp4
+reports/*.log
+reports/screenshots/
+reports/pytest_report.html
+!reports/videos/
+.DS_Store
+.env
