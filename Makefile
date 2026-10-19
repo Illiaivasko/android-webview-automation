@@ -1,10 +1,13 @@
-.PHONY: help install test lint fmt check report clean zip
+.PHONY: help install appium test lint fmt check report clean zip
 
 help: ## Show this help message
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 install: ## Install dependencies using uv
 	uv sync
+
+appium: ## Start Appium server with chromedriver autodownload allowed
+	appium --allow-insecure chromedriver_autodownload
 
 test: ## Run Appium test suite and generate HTML report
 	uv run pytest tests/ -v

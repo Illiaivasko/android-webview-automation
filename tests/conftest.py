@@ -52,9 +52,16 @@ def driver(
         options=options,
     )
 
+    actual_caps = driver_instance.capabilities
+    execution_results["device_info"]["platform_version"] = (
+        actual_caps.get("platformVersion") or settings.platform_version or "Unknown"
+    )
+    execution_results["device_info"]["device_name"] = (
+        actual_caps.get("deviceModel") or actual_caps.get("deviceName") or settings.device_name
+    )
+
     try:
         driver_instance.start_recording_screen(
-            video_size="1080x2424",
             time_limit=180,
             bit_rate=4000000,
         )

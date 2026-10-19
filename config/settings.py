@@ -19,9 +19,9 @@ class AppiumSettings(BaseSettings):
 
     platform_name: str = "Android"
     automation_name: str = "UiAutomator2"
-    device_name: str = "Pixel 9 (emulator-5554)"
-    udid: str | None = "emulator-5554"
-    platform_version: str | None = "17"
+    device_name: str = "Android Emulator"
+    udid: str | None = None
+    platform_version: str | None = None
 
     app_package: str = "com.trident.webviewgen.demo"
     app_activity: str = "com.trident.webviewgen.demo.MainActivity"
